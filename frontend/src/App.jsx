@@ -29,25 +29,30 @@ const App = () => {
   const receiveMessage = (message) => {
     setMessages((state) => [...state, message]);
   };
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter your message"
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button>Send</button>
-      </form>
-      <ul>
-        {messages.map((message, i) => (
-          <li key={i}>
-            {message.from}:{message.body}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+
+  const OldScreen = () => {
+    return (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter your message"
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button>Send</button>
+        </form>
+        <ul>
+          {messages.map((message, i) => (
+            <li key={i}>
+              {message.from}:{message.body}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  return <OldScreen />;
 };
 
 export default App;
